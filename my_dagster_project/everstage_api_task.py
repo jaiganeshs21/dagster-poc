@@ -5,7 +5,7 @@ import json
 
 
 def everstage_api_task():
-    url = "http://host.docker.internal:8000/airflow/connector/get-datasheet-names"
+    url = "http://localhost:8000/airflow/connector/get-datasheet-names"
     email = "test@datasheet.graph"
     client_id = 3001
 

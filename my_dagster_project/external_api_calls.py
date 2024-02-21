@@ -1,10 +1,10 @@
 from dagster import op, sensor, RunRequest, job
+from everstage_api_task import everstage_api_task
 
 @op
 def start_long_running_job():
-    print("Starting long-running job")
-    return "12345"
-
+    print("DAGSTER: inside start_long_running_job()")
+    everstage_api_task()
 
 @job
 def my_pipeline():
