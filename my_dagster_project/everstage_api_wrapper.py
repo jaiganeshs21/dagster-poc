@@ -8,7 +8,7 @@ class EverstageAPIWrapper:
     """
 
     def _get_everstage_airflow_api_client_secret(self):
-        # return os.getenv("EVERSTAGE_SUPERSET_API_CLIENT_SECRET")
+        # return os.getenv("EVERSTAGE_AIRFLOW_API_CLIENT_SECRET")
         return "3cc937c3-6188-4800-875b-7327b0ca9bca"
 
     def _get_airflow_bearer_token_for_request(self):
