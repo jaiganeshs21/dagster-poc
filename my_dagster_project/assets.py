@@ -38,8 +38,7 @@ def second_asset(context: AssetExecutionContext, upstream: List):
     },
     group_name="group1",
 )
-def third_asset(
-    context: AssetExecutionContext, first_upstream: List, second_upstream: List
+def third_asset(first_upstream: List, second_upstream: List
 ):
     """
     This is our third asset
@@ -57,15 +56,15 @@ defs = Definitions(
     assets=[first_asset, second_asset, third_asset],
     jobs=[
         define_asset_job(
-            name="hello_dagster_job",
+            name="asset_job",
             selection=AssetSelection.groups("group1"),
         )
     ],
     schedules=[
         ScheduleDefinition(
-            name="hello_dagster_schedule",
-            job_name="hello_dagster_job",
-            cron_schedule="* * * * *",
+            name="asset_job",
+            job_name="asset_job",
+            cron_schedule="10 * * * *",
         )
     ],
 )
