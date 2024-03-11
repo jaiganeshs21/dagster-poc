@@ -1,8 +1,8 @@
 import json
 from everstage_api_wrapper import EverstageAPIWrapper
 
-EMAIL = "everstage.support@dagster-poc.admin.com"
-CLIENT_ID = 10014
+EMAIL = "super.admin@everstageinc.com"
+CLIENT_ID = 3011
 
 def submit_databook_task_to_everstage(databook_ids) -> str:
     """
