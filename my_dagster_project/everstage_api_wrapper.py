@@ -1,6 +1,4 @@
-import os
 import requests
-from flask import session
 
 
 class EverstageAPIWrapper:
