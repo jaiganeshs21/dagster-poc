@@ -57,4 +57,5 @@ def get_task_status(job_id, timeout,interval, task_name):
         
 @job
 def my_pipeline():
-    databook_task = submit_databook_sync_task()    commission_task = submit_commission_sync_task(databook_task)
+    databook_task = submit_databook_sync_task()
+    commission_task = submit_commission_sync_task(databook_task)
