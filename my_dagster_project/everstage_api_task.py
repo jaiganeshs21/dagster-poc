@@ -1,7 +1,8 @@
 import json
 from everstage_api_wrapper import EverstageAPIWrapper
 
-
+EMAIL = "everstage.support@dagster-poc.admin.com"
+CLIENT_ID = 10014
 
 def submit_databook_task_to_everstage(databook_ids) -> str:
     """
@@ -10,11 +11,9 @@ def submit_databook_task_to_everstage(databook_ids) -> str:
     print("BEGIN: Inside submit_databook_task_to_everstage")
     
     base_url = "http://localhost:8000/dagster/trigger-datasheet-sync"
-    email = "everstage.admin@linking-ds.com"
-    client_id = 3018
     url: str = f"{base_url}?databook_ids={databook_ids}"
 
-    payload = json.dumps({"email": email, "client_id": client_id})
+    payload = json.dumps({"email": EMAIL, "client_id": CLIENT_ID})
 
     api_invoker = EverstageAPIWrapper()
     response = api_invoker.session.get(url, data=payload)
@@ -32,10 +31,8 @@ def submit_commission_task_to_everstage() -> str:
     print("BEGIN: Inside submit_commission_task_to_everstage")
     
     url = "http://localhost:8000/dagster/trigger-commission-sync"
-    email = "everstage.admin@linking-ds.com"
-    client_id = 3018
 
-    payload = json.dumps({"email": email, "client_id": client_id})
+    payload = json.dumps({"email": EMAIL, "client_id": CLIENT_ID})
 
     api_invoker = EverstageAPIWrapper()
     response = api_invoker.session.get(url, data=payload)
@@ -53,19 +50,17 @@ def task_status_checker(e2e_sync_run_id, task_name) -> str:
     print("BEGIN: task_status_checker e2e_sync_run_id", e2e_sync_run_id, task_name)
      
     base_url = "http://localhost:8000/dagster/get-sync-task-status"
-    email = "everstage.admin@linking-ds.com"
-    client_id = 3018
     
-    url: str = f"{base_url}?e2e_sync_run_id={e2e_sync_run_id}?task_name={task_name}"
+    url: str = f"{base_url}?e2e_sync_run_id={e2e_sync_run_id}&task_name={task_name}"
 
-    payload = json.dumps({"email": email, "client_id": client_id})
+    payload = json.dumps({"email": EMAIL, "client_id": CLIENT_ID})
 
     api_invoker = EverstageAPIWrapper()
     response = api_invoker.session.get(url, data=payload)
 
     response_json = response.json()
     
-    print(" task_status_checker result ", json.dumps(response_json, indent=4))
+    print("task_status_checker result ", json.dumps(response_json, indent=4))
         
     print("END: task_status_checker e2e_sync_run_id", e2e_sync_run_id, task_name)
     return response_json.get('status')
