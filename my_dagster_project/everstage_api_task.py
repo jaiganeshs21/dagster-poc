@@ -1,10 +1,11 @@
 import json
 from everstage_api_wrapper import EverstageAPIWrapper
+import json
 
 EMAIL = "super.admin@everstageinc.com"
 CLIENT_ID = 3011
 
-def submit_databook_task_to_everstage(databook_ids) -> str:
+def databook_task_to_everstage(databook_ids) -> str:
     """
     This function submits a databook task to Everstage and returns the job_id
     """
@@ -23,8 +24,7 @@ def submit_databook_task_to_everstage(databook_ids) -> str:
     print("END: Inside submit_databook_task_to_everstage", json.dumps(response_json, indent=4))
     return response_json.get('e2eSyncRunId')
         
-        
-def submit_commission_task_to_everstage() -> str:
+def commission_task_to_everstage() -> str:
     """
     This function submits commission task to Everstage and returns the job_id
     """
