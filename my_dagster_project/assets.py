@@ -31,7 +31,6 @@ def second_asset(context: AssetExecutionContext, upstream: List):
     return data
 
 
-
 @asset(
     ins={
         "first_upstream": AssetIn("first_asset"),
@@ -39,8 +38,7 @@ def second_asset(context: AssetExecutionContext, upstream: List):
     },
     group_name="group1",
 )
-def third_asset(first_upstream: List, second_upstream: List
-):
+def third_asset(first_upstream: List, second_upstream: List):
     """
     This is our third asset
     """

@@ -2,11 +2,13 @@ from dagster import op, graph
 import asyncio
 import os
 
+
 @op
 async def task_1():
     print(f"Inside task 1. PID: {os.getpid()}")
     await asyncio.sleep(10)
     return "done"
+
 
 @op
 async def task_2(task1):
@@ -14,11 +16,13 @@ async def task_2(task1):
     await asyncio.sleep(10)
     return "done"
 
+
 @op
 async def task_3(task2):
     print(f"Inside task 3. PID: {os.getpid()}")
     await asyncio.sleep(10)
     return "done"
+
 
 @op
 async def task_4(task3):
@@ -26,11 +30,13 @@ async def task_4(task3):
     await asyncio.sleep(10)
     return "done"
 
+
 @op
 async def task_5(task4):
     print(f"Inside task 5. PID: {os.getpid()}")
     await asyncio.sleep(10)
     return "done"
+
 
 @graph
 def daily_etl_async():
