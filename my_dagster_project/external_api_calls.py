@@ -14,13 +14,13 @@ def submit_databook_sync_task():
     job_id = databook_task_to_everstage(databook_ids=databook_ids)
     print("job_id:", job_id)
 
-    task_status = get_task_status(
-        job_id=job_id, timeout=1000, interval=5, task_name="DATASHEET"
-    )
-    if task_status == "complete":
-        print("Databook task completed")
-    else:
-        raise Exception("Task is not complete, marking pipeline as failed.")
+    # task_status = get_task_status(
+    #     job_id=job_id, timeout=1000, interval=5, task_name="DATASHEET"
+    # )
+    # if task_status == "complete":
+    #     print("Databook task completed")
+    # else:
+    #     raise Exception("Task is not complete, marking pipeline as failed.")
 
 
 @op

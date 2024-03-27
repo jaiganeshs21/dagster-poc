@@ -12,8 +12,8 @@ def databook_task_to_everstage(databook_ids) -> str:
     """
     print("BEGIN: Inside submit_databook_task_to_everstage")
 
-    base_url = "http://localhost:8000/dagster/trigger-datasheet-sync"
-    url: str = f"{base_url}?databook_ids={databook_ids}"
+    url = "http://localhost:8000/workflow_builder/when-trigger"
+    # url: str = f"{base_url}?databook_ids={databook_ids}"
 
     payload = json.dumps({"email": EMAIL, "client_id": CLIENT_ID})
 
